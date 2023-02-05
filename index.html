@@ -5,11 +5,12 @@
     <title>Document</title>
 </head>
 
-<body>
-    <script>       
+<body style="background-color: gray">
+    <script>
+        // get the link from the query param
         var url = new URL(window.location.href);
         var link = url.searchParams.get("link");
-        
+
         fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(link)}`)
             .then(response => {
                 if (response.ok) return response.json()
@@ -21,8 +22,14 @@
             });
 
     </script>
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
+    <div
+        style="font-size: 50px; color: white; position: absolute; top: 40%; left: 50%; margin: 0; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
+        <h1>
+            Loading...
+        </h1>
+        <div style="left: 50;">
+            Made by v,d.s#7009
+        </div>
+    </div>
 </body>
-
 </html>
