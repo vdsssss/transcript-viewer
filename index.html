@@ -6,6 +6,21 @@
 </head>
 
 <body>
+    <script>       
+        var url = new URL(window.location.href);
+        var link = url.searchParams.get("link");
+        
+        fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(link)}`)
+            .then(response => {
+                if (response.ok) return response.json()
+                throw new Error('Network response was not ok.')
+            })
+            .then(data => {
+                console.log(data.contents);
+                document.body.innerHTML = data.contents;
+            });
+
+    </script>
     <h1>My First Heading</h1>
     <p>My first paragraph.</p>
 </body>
